@@ -22,10 +22,11 @@ Follow these instructions carefully and in order.
 
 ##### Investigate how `let` and `const` are now used in the code. Where did you need to convert `const` into `let` to make the code work? Can you identify any patterns/similarities?
 
-(Put your answer here)
+Everything worked correctly with const, with the exception of two items. The allproducts array, and totalclicks. I could be wrong but my belief is that a const is "constant" and will always remain the same,
+whereas an array and totalclicks are going to be changed and therefore we are "letting" them stat empty (array) and at 0 (totalclicks).
 
 ---
 
 ##### How did it go with making the adaptation from concatenations to template literal notation? Do you think you'll mostly use template literal notation from now on?
 
-(Put your answer here)
+This wasn't nearly as hard as it seemed after I finished the first one. It does seem easier than using a bunch of '' and ,,.
