@@ -29,19 +29,18 @@ function makeRandom() {
 function displayPics(){
   // roll for three random indexes
   while(viewed.length < 6){
-    var rando = makeRandom();
+    let rando = makeRandom();
     while(!viewed.includes(rando)){
       viewed.push(rando);
     }
   }
-  console.log(rando);
   // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the variable declaration from `var to `let`.
   // Using var defines a gloabl variable, whereas let is limited in scope to the current block of code. The reason console.log throws an error is becuase it is outside the scope of variable being declared.
   console.log(viewed);
 
   // To the DOM and beyond!
   for (var i = 0; i < 3; i++){
-    var temp = viewed.shift();
+    let temp = viewed.shift();
     pics[i].src = allProducts[temp].path;
     pics[i].id = allProducts[temp].name;
     allProducts[temp].views += 1;
@@ -72,7 +71,7 @@ function handleClick(event) {
 
 function showList() {
   for(var i = 0; i < allProducts.length; i++) {
-    var liEl = document.createElement('li');
+    let liEl = document.createElement('li');
     liEl.textContent = allProducts[i].name + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views';
     list.appendChild(liEl);
   }
@@ -88,7 +87,7 @@ function makeChartData(){
 
 function makeChart(){
   makeChartData();
-  var ctx = document.getElementById('chartypants').getContext('2d');
+  let ctx = document.getElementById('chartypants').getContext('2d');
   new Chart(ctx, {
     type: 'bar',
     data: {
@@ -125,7 +124,7 @@ document.getElementById('bus').addEventListener('click', function(){
 
 if(localStorage.busmall){
   console.log('Local storage data exists');
-  allProducts = JSON.parse(localStorage.busmall)
+  allProducts = JSON.parse(localStorage.busmall);
 } else {
   console.log('There is no local storage data; initialize app by creating instances');
   for(var i = 0; i < names.length; i++) {
